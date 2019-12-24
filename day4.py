@@ -11,8 +11,7 @@ def has_adjacent_digits(password):
         if (password[i] == password[i+1]):
             if PART_ONE:
                 return True
-            if not has_larger_group(password, password[i], i):
-                return True
+            return check_larger_group(password, password[i], i)
     return False
 
 def has_increasing_digits(password):
@@ -22,7 +21,7 @@ def has_increasing_digits(password):
             return False
     return True
 
-def has_larger_group(password, match, match_pos):
+def check_larger_group(password, match, match_pos):
     if (password.count(match) == 2):
         return True
     if password[match_pos+2] == match:
